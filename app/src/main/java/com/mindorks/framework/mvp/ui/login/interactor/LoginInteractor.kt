@@ -21,13 +21,13 @@ class LoginInteractor @Inject internal constructor(preferenceHelper: PreferenceH
 
 
     override fun doServerLoginApiCall(email: String, password: String) =
-            apiHelper.performServerLogin(LoginRequest.ServerLoginRequest(email = email, password = password))
+            apiHelper.performServerLogin(email, password)
 
 
     override fun updateUserInSharedPref(loginResponse: LoginResponse, loggedInMode: AppConstants.LoggedInMode) =
             preferenceHelper.let {
                 it.setCurrentUserId(loginResponse.userId)
-                it.setAccessToken(loginResponse.accessToken)
+                it.setAccessToken(loginResponse.token)
                 it.setCurrentUserLoggedInMode(loggedInMode)
             }
 }

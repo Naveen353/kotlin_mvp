@@ -50,7 +50,7 @@ abstract class BaseDialogView : DialogFragment(), DialogMVPView {
 
     override fun showProgress() {
         hideProgress()
-        progressDialog = CommonUtil.showLoadingDialog(this.context)
+        progressDialog = CommonUtil.showLoadingDialog(context)
     }
 
     private fun performDependencyInjection() {

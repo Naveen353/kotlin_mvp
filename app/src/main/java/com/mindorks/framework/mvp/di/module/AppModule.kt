@@ -3,6 +3,7 @@ package com.mindorks.framework.mvp.di.module
 import android.app.Application
 import android.arch.persistence.room.Room
 import android.content.Context
+import android.support.v7.app.AppCompatActivity
 import com.mindorks.framework.mvp.BuildConfig
 import com.mindorks.framework.mvp.data.database.AppDatabase
 import com.mindorks.framework.mvp.data.database.repository.options.OptionsRepo
@@ -16,6 +17,7 @@ import com.mindorks.framework.mvp.data.preferences.AppPreferenceHelper
 import com.mindorks.framework.mvp.data.preferences.PreferenceHelper
 import com.mindorks.framework.mvp.di.ApiKeyInfo
 import com.mindorks.framework.mvp.di.PreferenceInfo
+import com.mindorks.framework.mvp.ui.tasks.view.OpenJobsAdapter
 import com.mindorks.framework.mvp.util.AppConstants
 import com.mindorks.framework.mvp.util.SchedulerProvider
 import dagger.Module
@@ -28,7 +30,6 @@ import javax.inject.Singleton
  */
 @Module
 class AppModule {
-
     @Provides
     @Singleton
     internal fun provideContext(application: Application): Context = application
@@ -59,7 +60,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    internal fun provideApiHelper(appApiHelper: AppApiHelper): ApiHelper = appApiHelper
+    internal fun provideApiHelper(appPreferenceHelper: AppPreferenceHelper): PreferenceHelper = appPreferenceHelper
 
     @Provides
     @Singleton
@@ -74,6 +75,7 @@ class AppModule {
 
     @Provides
     internal fun provideSchedulerProvider(): SchedulerProvider = SchedulerProvider()
+
 
 
 }

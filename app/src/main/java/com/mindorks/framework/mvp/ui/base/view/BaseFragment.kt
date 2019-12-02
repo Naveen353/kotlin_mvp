@@ -45,7 +45,7 @@ abstract class BaseFragment : Fragment(), MVPView {
 
     override fun showProgress() {
         hideProgress()
-        progressDialog = CommonUtil.showLoadingDialog(this.context)
+        progressDialog = CommonUtil.showLoadingDialog(context)
     }
 
     fun getBaseActivity() = parentActivity

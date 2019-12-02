@@ -4,7 +4,7 @@
   <string name="email">Email</string>
   <string name="password">Password</string>
   <string name="login">Login</string>
-  <string name="empty_email_error_message">Email cannot be blank</string>
+  <string name="empty_deid_error_message">DEID cannot be blank</string>
   <string name="invalid_email_error_message">Please Enter a valid email address</string>
   <string name="empty_password_error_message">Password cannot be empty</string>
   <string name="login_failure">Login failed</string>
@@ -13,6 +13,7 @@
   <string name="feed">Feed</string>
   <string name="logout">Logout</string>
   <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+  <string name="deid">DE ID</string>
 
   <string name="navigation_drawer_open">Open navigation drawer</string>
   <string name="navigation_drawer_close">Close navigation drawer</string>

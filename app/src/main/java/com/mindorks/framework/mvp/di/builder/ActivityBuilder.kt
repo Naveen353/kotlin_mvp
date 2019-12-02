@@ -11,6 +11,8 @@ import com.mindorks.framework.mvp.ui.main.view.MainActivity
 import com.mindorks.framework.mvp.ui.rate.RateUsDialogFragmentProvider
 import com.mindorks.framework.mvp.ui.splash.SplashActivityModule
 import com.mindorks.framework.mvp.ui.splash.view.SplashMVPActivity
+import com.mindorks.framework.mvp.ui.tasks.OpenJobsFragmentModule
+import com.mindorks.framework.mvp.ui.tasks.view.OpenJobsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -31,5 +33,8 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(BlogFragmentProvider::class), (OpenSourceFragmentProvider::class)])
     abstract fun bindFeedActivity(): FeedActivity
+
+    @ContributesAndroidInjector(modules = [(OpenJobsFragmentModule::class)])
+    abstract fun bindJobsActivity(): OpenJobsFragment
 
 }

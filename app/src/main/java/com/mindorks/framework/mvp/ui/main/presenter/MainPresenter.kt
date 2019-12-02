@@ -1,5 +1,6 @@
 package com.mindorks.framework.mvp.ui.main.presenter
 
+import android.util.Log
 import com.mindorks.framework.mvp.ui.base.presenter.BasePresenter
 import com.mindorks.framework.mvp.ui.main.interactor.MainMVPInteractor
 import com.mindorks.framework.mvp.ui.main.view.MainMVPView
@@ -38,7 +39,14 @@ class MainPresenter<V : MainMVPView, I : MainMVPInteractor> @Inject internal con
                                     it.hideProgress()
                                     it.openLoginActivity()
                                 }
-                            }, { err -> println(err) }))
+                            }, {
+
+                                err -> println(err)
+                                getView()?.hideProgress()
+
+                                Log.d("dff","fdfdf")
+
+                            }))
         }
 
     }

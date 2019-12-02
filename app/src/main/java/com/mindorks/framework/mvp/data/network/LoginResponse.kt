@@ -40,6 +40,26 @@ data class LoginResponse(@Expose
 
                          @Expose
                          @SerializedName("message")
-                         var message: String? = null)
+                         var message: String? = null,
+
+                         @Expose
+                         @SerializedName("first_name")
+                         var firstName: String? = null,
+
+                         @Expose
+                         @SerializedName("last_name")
+                         var lastName: String? = null,
+
+                         @Expose
+                         @SerializedName("phone")
+                         var phone: String? = null,
+
+                         @Expose
+                         @SerializedName("deid")
+                         var deid: String? = null,
+
+                         @Expose
+                         @SerializedName("token")
+                         var token: String? = null)
 
 

@@ -15,19 +15,22 @@ import javax.inject.Inject
  */
 class LoginPresenter<V : LoginMVPView, I : LoginMVPInteractor> @Inject internal constructor(interactor: I, schedulerProvider: SchedulerProvider, disposable: CompositeDisposable) : BasePresenter<V, I>(interactor = interactor, schedulerProvider = schedulerProvider, compositeDisposable = disposable), LoginMVPPresenter<V, I> {
 
-    override fun onServerLoginClicked(email: String, password: String) {
+    override fun onServerLoginClicked(deid: String, password: String) {
         when {
-            email.isEmpty() -> getView()?.showValidationMessage(AppConstants.EMPTY_EMAIL_ERROR)
+            deid.isEmpty() -> getView()?.showValidationMessage(AppConstants.EMPTY_DEID_ERROR)
             password.isEmpty() -> getView()?.showValidationMessage(AppConstants.EMPTY_PASSWORD_ERROR)
             else -> {
                 getView()?.showProgress()
                 interactor?.let {
-                    compositeDisposable.add(it.doServerLoginApiCall(email, password)
+                    compositeDisposable.add(it.doServerLoginApiCall(deid, password)
                             .compose(schedulerProvider.ioToMainObservableScheduler())
                             .subscribe({ loginResponse ->
                                 updateUserInSharedPref(loginResponse = loginResponse,
                                         loggedInMode = AppConstants.LoggedInMode.LOGGED_IN_MODE_SERVER)
-                                getView()?.openMainActivity()
+                                getView()?.let {
+                                    it.hideProgress()
+                                    it.openMainActivity()
+                                }
                             }, { err -> println(err) }))
                 }
 

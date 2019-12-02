@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/light_gray"
+    android:id="@+id/opentasksFragmentLayout"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/storeListSwipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewOpenJobs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/timer_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:animateLayoutChanges="false"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_baseline_alarm_24px"
+                    android:visibility="gone"
+                    />
+
+                <TextView
+                    android:id="@+id/countdownTimer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="false"
+                    android:gravity="center"
+                    android:textColor="@color/red_dark7"
+                    android:textSize="60sp"
+                    tools:text="00:00"
+                    fontPath="fonts/Roboto/Roboto-Bold.ttf"
+                    android:visibility="gone"
+
+                    />
+
+                <TextView
+                    android:id="@+id/countdownTimerText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="false"
+                    android:gravity="center"
+                    android:textColor="@color/gray"
+                    android:textSize="32sp"
+                    android:text="left for duty"
+                    fontPath="fonts/Roboto/Roboto-Regular.ttf"
+                    android:visibility="gone"
+
+                    />
+
+                <TextView
+                    android:id="@+id/errorView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="false"
+                    android:gravity="center"
+                    android:textColor="@color/gray"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true"
+                    tools:text="No Jobs "
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+        </FrameLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

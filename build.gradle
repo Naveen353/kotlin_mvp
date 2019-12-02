@@ -30,9 +30,9 @@ task clean(type: Delete) {
 ext {
     // Sdk and tools
     minSdkVersion = 16
-    targetSdkVersion = 26
-    compileSdkVersion = 26
-    buildToolsVersion = '26.0.2'
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+    buildToolsVersion = '28.0.3'
 
     // App dependencies
     kotlinVersion = kotlinVersion
@@ -41,7 +41,7 @@ ext {
     calligraphyVersion = '2.2.0'
     glideVersion = '3.7.0'
     rx2FastAndroidNetworking = '1.0.1'
-    dagger2Version = '2.11'
+    dagger2Version = '2.13'
     rxjava2Version = '2.0.6'
     rxandroidVersion = '2.0.1'
     butterKnifeVersion = '8.8.1'
@@ -49,6 +49,10 @@ ext {
     placeholderviewVersion = '0.6.1'
     debugDBVersion = '1.0.3'
     timberVersion = '4.6.0'
+    retrofitVersion = '2.5.0'
+    retrofitGsonVersion = '2.5.0'
+    retrofitLoggerVersion = '3.8.0'
+    rxjavaRetrofitAdapter = '1.0.0'
 
     //Test dependencies
     junitVersion = '4.12'

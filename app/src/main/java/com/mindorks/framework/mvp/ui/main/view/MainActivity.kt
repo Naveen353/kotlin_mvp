@@ -18,6 +18,7 @@ import com.mindorks.framework.mvp.ui.main.interactor.MainMVPInteractor
 import com.mindorks.framework.mvp.ui.main.interactor.QuestionCardData
 import com.mindorks.framework.mvp.ui.main.presenter.MainMVPPresenter
 import com.mindorks.framework.mvp.ui.rate.view.RateUsDialog
+import com.mindorks.framework.mvp.ui.tasks.view.OpenJobsFragment
 import com.mindorks.framework.mvp.util.ScreenUtils
 import com.mindorks.framework.mvp.util.extension.addFragment
 import com.mindorks.framework.mvp.util.extension.removeFragment
@@ -42,8 +43,10 @@ class MainActivity : BaseActivity(), MainMVPView, NavigationView.OnNavigationIte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setUpDrawerMenu()
-        setupCardContainerView()
+        //setupCardContainerView()
         presenter.onAttach(this)
+
+        supportFragmentManager.addFragment(R.id.cl_root_view, OpenJobsFragment.newInstance(), OpenJobsFragment.TAG)
     }
 
     override fun onBackPressed() {

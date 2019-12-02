@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.item_open_source_list.view.*
 /**
  * Created by jyotidubey on 14/01/18.
  */
-class OpenSourceAdapter(openSourceListItems: MutableList<OpenSource>) : RecyclerView.Adapter<OpenSourceAdapter.OpenSourceViewHolder>() {
+class OpenSourceAdapter (openSourceListItems: MutableList<OpenSource>) : RecyclerView.Adapter<OpenSourceAdapter.OpenSourceViewHolder>() {
 
     private val openSourceListItems: MutableList<OpenSource> = openSourceListItems
 

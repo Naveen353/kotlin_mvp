@@ -40,8 +40,8 @@ class LoginActivity : BaseActivity(), LoginMVPView {
 
     override fun showValidationMessage(errorCode: Int) {
         when (errorCode) {
-            AppConstants.EMPTY_EMAIL_ERROR -> Toast.makeText(this, getString(R.string.empty_email_error_message), Toast.LENGTH_LONG).show()
-            AppConstants.INVALID_EMAIL_ERROR -> Toast.makeText(this, getString(R.string.invalid_email_error_message), Toast.LENGTH_LONG).show()
+            AppConstants.EMPTY_DEID_ERROR -> Toast.makeText(this, getString(R.string.empty_deid_error_message), Toast.LENGTH_LONG).show()
+            AppConstants.INVALID_DEID_ERROR -> Toast.makeText(this, getString(R.string.invalid_email_error_message), Toast.LENGTH_LONG).show()
             AppConstants.EMPTY_PASSWORD_ERROR -> Toast.makeText(this, getString(R.string.empty_password_error_message), Toast.LENGTH_LONG).show()
             AppConstants.LOGIN_FAILURE -> Toast.makeText(this, getString(R.string.login_failure), Toast.LENGTH_LONG).show()
         }
@@ -54,8 +54,8 @@ class LoginActivity : BaseActivity(), LoginMVPView {
     }
 
     private fun setOnClickListeners() {
-        btnServerLogin.setOnClickListener { presenter.onServerLoginClicked(et_email.text.toString(), et_password.text.toString()) }
-        ibGoogleLogin.setOnClickListener { presenter.onGoogleLoginClicked() }
-        ibFbLogin.setOnClickListener { presenter.onFBLoginClicked() }
+        btn_server_login.setOnClickListener { presenter.onServerLoginClicked(et_deid.text.toString(), et_password.text.toString()) }
+//        ibGoogleLogin.setOnClickListener { presenter.onGoogleLoginClicked() }
+//        ibFbLogin.setOnClickListener { presenter.onFBLoginClicked() }
     }
 }

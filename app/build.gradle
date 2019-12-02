@@ -19,7 +19,8 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2\"")
+            //buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2\"")
+            buildConfigField("String", "BASE_URL", "\"http://54.224.255.255:81/\"")//AWS Staging
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
         release {
@@ -47,6 +48,10 @@ dependencies {
 
     // network
     implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2FastAndroidNetworking"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitGsonVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.retrofitLoggerVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.rxjavaRetrofitAdapter"
 
     // database
     implementation "android.arch.persistence.room:rxjava2:$rootProject.roomDatabaseVersion"
