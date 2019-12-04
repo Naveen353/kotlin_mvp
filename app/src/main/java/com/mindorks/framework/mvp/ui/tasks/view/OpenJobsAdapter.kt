@@ -14,13 +14,13 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class OpenJobsAdapter : RecyclerView.Adapter<OpenJobsAdapter.OpenJobsViewHolder>(){
-    private var mJobList: ArrayList<Job>? = null
+    private var mJobList: List<Job>? = null
     private var mTaskClickListener: TaskClickListener? = null
     init {
        mJobList = ArrayList<Job>()
     }
 
-    fun setJobList(jobList: ArrayList<Job>) {
+    fun setJobList(jobList: List<Job>) {
         this.mJobList = jobList
         notifyDataSetChanged()
     }
@@ -29,9 +29,9 @@ class OpenJobsAdapter : RecyclerView.Adapter<OpenJobsAdapter.OpenJobsViewHolder>
         fun onTaskClicked(job: Job)
     }
 
-//    fun setTaskClickListener(taskClickListener: OpenJobsFragment) {
-//        this.mTaskClickListener = taskClickListener
-//    }
+    fun setTaskClickListener(taskClickListener: OpenJobsFragment) {
+        this.mTaskClickListener = taskClickListener
+    }
 
     override fun getItemCount() = mJobList!!.size
 

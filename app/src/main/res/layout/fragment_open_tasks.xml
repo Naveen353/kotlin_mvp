@@ -11,7 +11,7 @@
     tools:ignore="MissingPrefix">
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/storeListSwipeRefreshLayout"
+        android:id="@+id/jobListSwipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

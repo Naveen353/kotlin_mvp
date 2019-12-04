@@ -15,6 +15,10 @@ data class LoginResponse(@Expose
                          var userId: Long? = null,
 
                          @Expose
+                         @SerializedName("id")
+                         var id: Long? = null,
+
+                         @Expose
                          @SerializedName("access_token")
                          var accessToken: String? = null,
 

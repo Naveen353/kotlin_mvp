@@ -45,8 +45,11 @@ class AppApiHelper @Inject constructor(private val mPreferenceHelper: AppPrefere
 
     override fun performServerLogin(deid: String, password: String): Observable<LoginResponse> {
         val reqParams = HashMap<String, String>()
-        reqParams["rider_id"] = deid
+        reqParams["deid"] = deid
         reqParams["password"] = password
+        reqParams["lat"] = "0.0"
+        reqParams["lng"] = "0.0"
+
         return LoginApiUtils.appApi.make_login_request(reqParams)
     }
 

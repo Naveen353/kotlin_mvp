@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
@@ -26,7 +27,6 @@ import com.mindorks.placeholderview.SwipeDecor
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_navigation.*
 import kotlinx.android.synthetic.main.nav_header_navigation.view.*
 import javax.inject.Inject
 
@@ -45,8 +45,9 @@ class MainActivity : BaseActivity(), MainMVPView, NavigationView.OnNavigationIte
         setUpDrawerMenu()
         //setupCardContainerView()
         presenter.onAttach(this)
+        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.blue))
 
-        supportFragmentManager.addFragment(R.id.cl_root_view, OpenJobsFragment.newInstance(), OpenJobsFragment.TAG)
+        supportFragmentManager.addFragment(R.id.container, OpenJobsFragment.newInstance(), OpenJobsFragment.TAG)
     }
 
     override fun onBackPressed() {
@@ -95,13 +96,12 @@ class MainActivity : BaseActivity(), MainMVPView, NavigationView.OnNavigationIte
 
     override fun displayQuestionCard(questionCards: List<QuestionCardData>) {
         for (questionCard in questionCards) {
-            questionHolder.addView(QuestionCard(questionCard))
+            //questionHolder.addView(QuestionCard(questionCard))
         }
     }
 
     override fun inflateUserDetails(userDetails: Pair<String?, String?>) {
-        navView.getHeaderView(0).nav_name.text = userDetails.first
-        navView.getHeaderView(0).nav_email.text = userDetails.second
+
     }
 
     override fun openLoginActivity() {
@@ -133,27 +133,27 @@ class MainActivity : BaseActivity(), MainMVPView, NavigationView.OnNavigationIte
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        navView.setNavigationItemSelectedListener(this)
+        navigation_view.setNavigationItemSelectedListener(this)
 
     }
 
-    private fun setupCardContainerView() {
-        val screenWidth = ScreenUtils.getScreenWidth(this)
-        val screenHeight = ScreenUtils.getScreenHeight(this)
-        questionHolder.builder
-                .setDisplayViewCount(3)
-                .setHeightSwipeDistFactor(10f)
-                .setWidthSwipeDistFactor(5f)
-                .setSwipeDecor(SwipeDecor()
-                        .setViewWidth((0.90 * screenWidth).toInt())
-                        .setViewHeight((0.75 * screenHeight).toInt())
-                        .setPaddingTop(20)
-                        .setSwipeRotationAngle(10)
-                        .setRelativeScale(0.01f))
-        questionHolder.addItemRemoveListener { count ->
-            if (count == 0) {
-                Handler(mainLooper).postDelayed({ presenter.refreshQuestionCards() }, 800)
-            }
-        }
-    }
+//    private fun setupCardContainerView() {
+//        val screenWidth = ScreenUtils.getScreenWidth(this)
+//        val screenHeight = ScreenUtils.getScreenHeight(this)
+//        questionHolder.builder
+//                .setDisplayViewCount(3)
+//                .setHeightSwipeDistFactor(10f)
+//                .setWidthSwipeDistFactor(5f)
+//                .setSwipeDecor(SwipeDecor()
+//                        .setViewWidth((0.90 * screenWidth).toInt())
+//                        .setViewHeight((0.75 * screenHeight).toInt())
+//                        .setPaddingTop(20)
+//                        .setSwipeRotationAngle(10)
+//                        .setRelativeScale(0.01f))
+//        questionHolder.addItemRemoveListener { count ->
+//            if (count == 0) {
+//                Handler(mainLooper).postDelayed({ presenter.refreshQuestionCards() }, 800)
+//            }
+//        }
+//    }
 }

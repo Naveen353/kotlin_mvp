@@ -43,9 +43,6 @@ class MainPresenter<V : MainMVPView, I : MainMVPInteractor> @Inject internal con
 
                                 err -> println(err)
                                 getView()?.hideProgress()
-
-                                Log.d("dff","fdfdf")
-
                             }))
         }
 

@@ -9,13 +9,13 @@ import javax.inject.Inject
 
 class OpenJobsPresenter<V : OpenJobsMvpView, I : OpenJobsMVPInteractor> @Inject constructor(interactor: I, schedulerProvider: SchedulerProvider, compositeDisposable: CompositeDisposable) : BasePresenter<V, I>(interactor = interactor, schedulerProvider = schedulerProvider, compositeDisposable = compositeDisposable), OpenJobsMVPPresenter<V, I> {
     override fun onViewPrepared() {
-        getView()?.showProgress()
+        //getView()?.showProgress()
         interactor?.let {
             compositeDisposable.add(it.getOpenJobsList()
                     .compose(schedulerProvider.ioToMainObservableScheduler())
                     .subscribe { openJobsResponse ->
                         getView()?.let {
-                            it.hideProgress()
+                            //it.hideProgress()
                             openJobsResponse.jobs?.let { it1 -> it.onJobListRetrieved(it1) }
                         }
                     })

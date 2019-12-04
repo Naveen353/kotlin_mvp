@@ -26,7 +26,7 @@ class LoginInteractor @Inject internal constructor(preferenceHelper: PreferenceH
 
     override fun updateUserInSharedPref(loginResponse: LoginResponse, loggedInMode: AppConstants.LoggedInMode) =
             preferenceHelper.let {
-                it.setCurrentUserId(loginResponse.userId)
+                it.setCurrentUserId(loginResponse.id)
                 it.setAccessToken(loginResponse.token)
                 it.setCurrentUserLoggedInMode(loggedInMode)
             }

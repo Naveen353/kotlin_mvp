@@ -60,7 +60,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    internal fun provideApiHelper(appPreferenceHelper: AppPreferenceHelper): PreferenceHelper = appPreferenceHelper
+    internal fun provideApiHelper(appApiHelper: AppApiHelper): ApiHelper = appApiHelper
 
     @Provides
     @Singleton

@@ -14,6 +14,11 @@
   <string name="logout">Logout</string>
   <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
   <string name="deid">DE ID</string>
+  <string name="rider_tasks">Live Tasks</string>
+  <string name="cash_in_hand">Cash in Hand</string>
+  <string name="profile">My Profile</string>
+  <string name="live_tasks">Live Tasks</string>
+  <string name="order_history">Order History</string>
 
   <string name="navigation_drawer_open">Open navigation drawer</string>
   <string name="navigation_drawer_close">Close navigation drawer</string>
